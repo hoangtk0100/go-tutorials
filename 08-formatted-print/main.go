@@ -14,6 +14,7 @@ func main() {
 	// %s	:	String
 	// %q	:	Quoted string
 	// %t	:	Boolean
+	// %p	:	Pointer address
 	// %v	:	Guesses based on data type
 	// %T	:	Type of supplied value
 
