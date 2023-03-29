@@ -1,3 +1,10 @@
+/* 
+	GO MODULE
+
+	go mod init		- Initialize new module in current directory
+	go mod tidy		- Add missing and remove unused modules
+*/
+
 package main
 
 import (

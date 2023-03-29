@@ -1,3 +1,20 @@
+/*
+	VARIABLES
+		var name type	| var name type = value	| name := value
+		- name: begin with letter, may contains letters, digits
+		- Variable is a mutable data type, you can change its value but cannot change its type
+
+	GLOBAL LEVEL VARIABLES
+		var GlobalVar = "somevalue"
+		Variable name with Uppercase first letter - exported
+		Can be used everywhere across all packages
+
+	PACKAGE LEVEL VARIABLES
+		var aVar = "somevalue"
+		Can be used everywhere in the same package
+		All the functions in package can access to these variables
+*/
+
 package main
 
 import "fmt"
@@ -5,11 +22,6 @@ import "fmt"
 var pl = fmt.Println
 
 func main() {
-	/* var name type
-	- name: begin with letter, may contains letters, digits
-	- Capital name (ex: DoSomething()): exported, can be access outside of the package
-	- Variable is a mutable data type, you can change its value but cannot change its type
-	*/
 	var vName string = "Hoang"
 	var v1, v2 int = 1, 2
 	var v3 = 3.14
