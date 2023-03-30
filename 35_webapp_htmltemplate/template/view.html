@@ -83,9 +83,11 @@
 	</style>
 </head>
 <body>
+	{{/* Displays Number of To Dos */}}
 	<h1>Todo List ({{.Amount}})</h1>
 	<div class="container">
 		<ul>
+			{{/* Iterate todos and renders each */}}
             {{range .Todos}}
             <li>
                 <span>{{.}}</span>

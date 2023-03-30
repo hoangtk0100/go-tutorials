@@ -38,7 +38,6 @@ func greetingHandler(w http.ResponseWriter, r *http.Request) {
 func createHandler(w http.ResponseWriter, r *http.Request) {
 	// Get input data from form
 	todo := r.FormValue("todo")
-	fmt.Println(todo)
 
 	// Options for working with file
 	options := os.O_CREATE | os.O_WRONLY | os.O_APPEND
@@ -49,9 +48,6 @@ func createHandler(w http.ResponseWriter, r *http.Request) {
 	// Append new record to file
 	_, err = fmt.Fprintln(file, todo)
 	handleError(err)
-
-	data, err := os.ReadFile(dataFile)
-	fmt.Println(data)
 
 	err = file.Close()
 	handleError(err)

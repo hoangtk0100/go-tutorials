@@ -26,5 +26,5 @@ go test -v
 go mod download
 
 # Then run test
-<!-- go test -v -->
+go test -v
 ```
