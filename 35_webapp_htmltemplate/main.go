@@ -102,8 +102,11 @@ func setupRoutes() {
 
 func main() {
 	setupRoutes()
+	fmt.Println("Start server at 8080")
 
 	// Run server at localhost:8080
 	err := http.ListenAndServe(":8080", nil)
-	log.Fatal(err)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
