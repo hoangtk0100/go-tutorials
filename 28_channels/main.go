@@ -42,7 +42,7 @@ func getOrderedResults() {
 	pl(<-chan2)
 }
 
-func fibonancci(n int, c chan int) {
+func fibonacci(n int, c chan int) {
 	x, y := 0, 1
 	for index := 0; index < n; index++ {
 		c <- x
@@ -58,19 +58,28 @@ func main() {
 	getOrderedResults()
 
 	// Send these values into the channel with a corresponding concurrent receive.
-	chan1 := make(chan string)
-	go func() { chan1 <- "Hello" }()
-	go func() { chan1 <- "World" }()
+	ch1 := make(chan string)
+	go func() { ch1 <- "Hello" }()
+	go func() { ch1 <- "World" }()
 
-	a, b := <-chan1, <-chan1
+	a, b := <-ch1, <-ch1
 	pl(a, b)
 
 	// Buffered channel
-	chan2 := make(chan int, 10)
-	fibonancci(cap(chan2), chan2)
+	ch2 := make(chan int, 10)
+	fibonacci(cap(ch2), ch2)
 
-	// range c will receive values from channel chan2 until it is closed
-	for index := range chan2 {
+	// range c will receive values from channel ch2 until it is closed
+	for index := range ch2 {
 		pl(index)
 	}
+
+	ch3 := make(chan int, 1)
+	ch3 <- 1
+	// ch3 <- 2 // fatal error: all goroutines are asleep - deadlock! (goroutine 3 [chan receive (len: 1])
+	pl(<-ch3)
+
+	ch3 <- 2
+	pl(<-ch3)
+	// pl(<-ch3) // fatal error: all goroutines are asleep - deadlock! - because of empty ch3
 }
