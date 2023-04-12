@@ -1,7 +1,9 @@
 /*
 	sync.Mutex
 
-	A MUTEX (short for "mutual exclusion") is a synchronization primitive used to protect shared resources (such as variables, data structures, or I/O devices) from concurrent access by multiple goroutines at a time to avoid conflicts
+	A MUTEX (short for "mutual exclusion") is a synchronization primitive used to protect shared resources (such as variables, data structures, or I/O devices) from concurrent access by multiple goroutines at a time to avoid conflicts, data race conditions
+	(A data race occurs when two goroutines access the same variable concurrently and at least one of the accesses is a write)
+
 	Support 2 methods:
 		Lock() - Acquires the mutex and blocks until it is available. If the mutex is already locked by another goroutine, Lock() will block until it becomes available.
 		Unlock() - Releases the mutex, allowing other goroutines to acquire it.

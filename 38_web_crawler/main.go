@@ -116,7 +116,6 @@ func main() {
 	}
 
 	c.Wait()
-	time.Sleep(time.Microsecond * 2)
 
 	data, err := json.MarshalIndent(books, "\t", "")
 	if err != nil {
